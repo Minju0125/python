@@ -1,0 +1,16 @@
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\bin\Debug\net6.0-windows\MyWin01.exe
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\bin\Debug\net6.0-windows\MyWin01.deps.json
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\bin\Debug\net6.0-windows\MyWin01.runtimeconfig.json
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\bin\Debug\net6.0-windows\MyWin01.dll
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\bin\Debug\net6.0-windows\MyWin01.pdb
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\obj\Debug\net6.0-windows\MyWin01.Form1.resources
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\obj\Debug\net6.0-windows\MyWin01.csproj.GenerateResource.cache
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\obj\Debug\net6.0-windows\MyWin01.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\obj\Debug\net6.0-windows\MyWin01.AssemblyInfoInputs.cache
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\obj\Debug\net6.0-windows\MyWin01.AssemblyInfo.cs
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\obj\Debug\net6.0-windows\MyWin01.csproj.CoreCompileInputs.cache
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\obj\Debug\net6.0-windows\MyWin01.dll
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\obj\Debug\net6.0-windows\refint\MyWin01.dll
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\obj\Debug\net6.0-windows\MyWin01.pdb
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\obj\Debug\net6.0-windows\MyWin01.genruntimeconfig.cache
+C:\workspace_python\HELLO_PYTHON\day04\MyWin01\MyWin01\obj\Debug\net6.0-windows\ref\MyWin01.dll

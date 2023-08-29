@@ -1,0 +1,10 @@
+C:\workspace_python\HELLO_PYTHON\day04\MyWin06\MyWin06\bin\Debug\MyWin06.exe.config
+C:\workspace_python\HELLO_PYTHON\day04\MyWin06\MyWin06\bin\Debug\MyWin06.exe
+C:\workspace_python\HELLO_PYTHON\day04\MyWin06\MyWin06\bin\Debug\MyWin06.pdb
+C:\workspace_python\HELLO_PYTHON\day04\MyWin06\MyWin06\obj\Debug\MyWin06.csproj.AssemblyReference.cache
+C:\workspace_python\HELLO_PYTHON\day04\MyWin06\MyWin06\obj\Debug\MyWin06.Form1.resources
+C:\workspace_python\HELLO_PYTHON\day04\MyWin06\MyWin06\obj\Debug\MyWin06.Properties.Resources.resources
+C:\workspace_python\HELLO_PYTHON\day04\MyWin06\MyWin06\obj\Debug\MyWin06.csproj.GenerateResource.cache
+C:\workspace_python\HELLO_PYTHON\day04\MyWin06\MyWin06\obj\Debug\MyWin06.csproj.CoreCompileInputs.cache
+C:\workspace_python\HELLO_PYTHON\day04\MyWin06\MyWin06\obj\Debug\MyWin06.exe
+C:\workspace_python\HELLO_PYTHON\day04\MyWin06\MyWin06\obj\Debug\MyWin06.pdb
