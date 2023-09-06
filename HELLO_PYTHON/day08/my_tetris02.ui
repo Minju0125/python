@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
-    <height>868</height>
+    <width>662</width>
+    <height>1010</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,40 +23,30 @@
    <widget class="QLabel" name="lbl">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>60</y>
-      <width>40</width>
-      <height>40</height>
+      <x>333</x>
+      <y>34</y>
+      <width>56</width>
+      <height>12</height>
      </rect>
     </property>
     <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>0.png</pixmap>
+     <string>남은 갯수</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="tb">
+   <widget class="QLineEdit" name="le">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>0</y>
-      <width>40</width>
-      <height>40</height>
+      <x>400</x>
+      <y>30</y>
+      <width>113</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string/>
+     <string>10</string>
     </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>0.png</normaloff>0.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>40</width>
-      <height>40</height>
-     </size>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -65,7 +55,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>550</width>
+     <width>662</width>
      <height>21</height>
     </rect>
    </property>
