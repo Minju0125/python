@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.1.js"></script>
+<script type="text/javascript">
+function fn_list(){
+	var params = {
+	};
+
+	$.ajax({
+		url: "../member_select",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var list = resp.list;
+			var res="";
+			for(var i=0; i<list.length; i++){
+			var m= list[i]
+			res +=`
+					<tr>
+						<td><a href="javascript:fn_one('${m.m_id}')">${m.m_id}</td>
+						<td>${m.m_name}</td>
+						<td>${m.tel}</td>
+						<td>${m.email}</td>
+					</tr>
+					`;
+			}
+		 	$("#my_tbody").html(res)
+		}
+	});
+}
+
+function fn_one(m_id){
+	var params = {
+			'm_id' : m_id		
+	};
+
+	$.ajax({
+		url: "../member_select_one",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var member = resp.member;
+			$("#m_id").val(member.m_id)	
+			$("#m_name").val(member.m_name)		
+			$("#tel").val(member.tel)		
+			$("#email").val(member.email)	
+		}
+	});
+}
+
+function fn_add(m_id, m_name, tel, email){
+	var params = {
+			'm_id' : $("#m_id").val(),		
+			'm_name' : $("#m_name").val(),		
+			'tel' : $("#tel").val(),		
+			'email' : $("#email").val()		
+	};
+	
+	$.ajax({
+		url: "../member_insert",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var cnt = resp.cnt
+			if(cnt>0){
+				alert('정상적으로 추가되었습니다.')
+				fn_list();
+				fn_clear();
+			}else{
+				alert('추가 실패')
+			}
+		}
+	});
+}
+
+function fn_mod(m_id, m_name, tel, email){
+	var params = {
+			'm_id' : $("#m_id").val(),		
+			'm_name' : $("#m_name").val(),		
+			'tel' : $("#tel").val(),		
+			'email' : $("#email").val()		
+	};
+	
+	$.ajax({
+		url: "../member_update",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var cnt = resp.cnt
+			if(cnt>0){
+				alert('정상적으로 수정되었습니다.')
+				fn_list();
+				fn_clear();
+			}else{
+				alert('수정 실패')
+			}
+		}
+	});
+}
+
+function fn_del(m_id, m_name, tel, email){
+	var params = {
+			'm_id' : $("#m_id").val(),		
+	};
+	
+	$.ajax({
+		url: "../member_delete",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var cnt = resp.cnt
+			if(cnt>0){
+				alert('정상적으로 삭제되었습니다.')
+				fn_list();
+				fn_clear();
+			}else{
+				alert('삭제 실패')
+			}
+		}
+	});
+}
+
+function fn_clear(){
+	$("#m_id").val("")
+	$("#m_name").val("")
+	$("#tel").val("")
+	$("#email").val("")	
+}
+
+$(document).ready(function(){
+	fn_list();
+})
+
+</script>
+</head>
+<body>
+<input type="button" value="CLICK" onclick="fn_list()"/>
+<table border="1px">
+	<thead>
+		<tr>
+			<td>아이디</td>
+			<td>이름</td>
+			<td>연락처</td>
+			<td>메일</td>
+		</tr>
+	</thead>
+	<tbody id="my_tbody">
+		<tr>
+			<td colspan="4" id="res">
+				데이터가 없습니다.
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="1px">
+	<thead>
+		<tr>
+			<td>아이디</td>
+			<td><input type="text" id="m_id"/></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" id="m_name"/></td>
+		</tr>
+		<tr>
+			<td>연락처</td>
+			<td><input type="text" id="tel"/></td>
+		</tr>
+		<tr>
+			<td>메일</td>
+			<td><input type="text" id="email"/></td>
+		</tr>
+	</thead>
+	<tbody id="my_tbody">
+		<tr>
+			<td colspan="3" id="res">
+				<input type="button" value="추가" onclick="fn_add()"/>
+				<input type="button" value="수정" onclick="fn_mod()" />
+				<input type="button" value="삭제" onclick="fn_del()"/>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+</body>
+</html>

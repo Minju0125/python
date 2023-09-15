@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	fn_list();
+})
+
+function fn_list(){
+	var params = {	};
+
+	$.ajax({
+		url: "../exam_select",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var list = resp.list;
+			var res="";
+			for(var i=0; i<list.length; i++){
+			var e= list[i]
+			res +=`
+					<tr>
+						<td><a href="javascript:fn_one('${e.e_id}')">${e.e_id}</td>
+						<td>${e.m_id}</td>
+						<td>${e.kor}</td>
+						<td>${e.eng}</td>
+						<td>${e.math}</td>
+					</tr>
+					`;
+			}
+		 	$("#my_tbody").html(res)
+		}
+	});
+}
+
+function fn_one(e_id){
+	var params = {
+			'e_id' : e_id		
+	};
+
+	$.ajax({
+		url: "../exam_select_one",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var exam = resp.exam;
+			$("#e_id").val(exam.e_id)	
+			$("#m_id").val(exam.m_id)		
+			$("#kor").val(exam.kor)		
+			$("#eng").val(exam.eng)	
+			$("#math").val(exam.math)	
+		}
+	});
+}
+
+function fn_add( m_id, kor, eng, math){
+	var params = {
+			'm_id' : $("#m_id").val(),		
+			'kor' : $("#kor").val(),		
+			'eng' : $("#eng").val(),	
+			'math' : $("#math").val()		
+	};
+	
+	$.ajax({
+		url: "../exam_insert",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var cnt = resp.cnt
+			if(cnt>0){
+				alert('정상적으로 추가되었습니다.')
+				fn_list();
+				fn_clear();
+			}else{
+				alert('추가 실패')
+			}
+		}
+	});
+}
+
+function fn_mod(e_id, m_id, kor, eng, math){
+	var params = {
+			'e_id' : $("#e_id").val(),		
+			'm_id' : $("#m_id").val(),		
+			'kor' : $("#kor").val(),		
+			'eng' : $("#eng").val(),		
+			'math' : $("#math").val()		
+	};
+	
+	$.ajax({
+		url: "../exam_update",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var cnt = resp.cnt
+			if(cnt>0){
+				alert('정상적으로 수정되었습니다.')
+				fn_list();
+				fn_clear();
+			}else{
+				alert('수정 실패')
+			}
+		}
+	});
+}
+
+function fn_del(e_id){
+	var params = {
+			'e_id' : $("#e_id").val(),		
+	};
+	
+	$.ajax({
+		url: "../exam_delete",
+		type: "post",
+		data: JSON.stringify(params),
+	    dataType: "json",
+	    contentType: "application/json",
+		success: function(resp) {
+			var cnt = resp.cnt
+			if(cnt>0){
+				alert('정상적으로 삭제되었습니다.')
+				fn_list();
+				fn_clear();
+			}else{
+				alert('삭제 실패')
+			}
+		}
+	});
+}
+
+function fn_clear(){
+	$("#e_id").val("")
+	$("#m_id").val("")
+	$("#kor").val("")
+	$("#eng").val("")
+	$("#math").val("")
+}
+
+</script>
+</head>
+<body>
+
+<table border="1px">
+	<thead>
+		<tr>
+			<td>시험번호</td>
+			<td>응시자번호</td>
+			<td>국어</td>
+			<td>영어</td>
+			<td>수학</td>
+		</tr>
+	</thead>
+	<tbody id="my_tbody">
+		<tr>
+			<td colspan="5" id="res">
+				데이터가 없습니다.
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="1px">
+		<tr>
+			<td>시험번호</td>
+			<td><input type="text" id="e_id"/></td>
+		</tr>
+		<tr>
+			<td>응시자번호</td>
+			<td><input type="text" id="m_id"/></td>
+		</tr>
+		<tr>
+			<td>국어</td>
+			<td><input type="text" id="kor"/></td>
+		</tr>
+		<tr>
+			<td>영어</td>
+			<td><input type="text" id="eng"/></td>
+		</tr>
+		<tr>
+			<td>수학</td>
+			<td><input type="text" id="math"/></td>
+		</tr>
+		<tr>
+			<td colspan="3" id="res">
+				<input type="button" value="추가" onclick="fn_add()"/>
+				<input type="button" value="수정" onclick="fn_mod()" />
+				<input type="button" value="삭제" onclick="fn_del()"/>
+			</td>
+		</tr>
+</table>
+</body>
+</html>
